@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm show:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm build:*)",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); funcs=[x for x in data['abi'] if x.get\\('type'\\)=='function']; [print\\(x['name'], [i['name']+':'+i['type'] for i in x.get\\('inputs',[]\\)], '->', [o.get\\('name',''\\)+':'+o['type'] for o in x.get\\('outputs',[]\\)]\\) for f in funcs for x in [f]]\")",
+      "Bash(npx vite *)",
+      "WebFetch(domain:localhost)",
+      "WebFetch(domain:127.0.0.1)"
+    ]
+  }
+}

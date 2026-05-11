@@ -1,0 +1,86 @@
+// ==================== Router 转场动画时长配置 ====================
+// 修改此变量可全局调整转场动画时长
+$transition-duration: 1000ms;
+$transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+$transition-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+// ========================================================
+
+// ==================== Router 转场动画效果 ====================
+
+// 1. 淡入淡出效果 (page-fade)
+.page-fade-enter-active,
+.page-fade-leave-active {
+    transition: opacity $transition-duration $transition-easing;
+}
+.page-fade-enter-from,
+.page-fade-leave-to {
+    opacity: 0;
+}
+
+// 2. 滑动 + 淡入效果 (page-slide)
+.page-slide-enter-active {
+    transition: all $transition-duration $transition-easing-bounce;
+}
+.page-slide-leave-active {
+    transition: all #{$transition-duration * 0.6} $transition-easing;
+}
+.page-slide-enter-from {
+    opacity: 0;
+    transform: translateY(30px);
+}
+.page-slide-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+// 3. 缩放 + 淡入效果 (page-scale) - 推荐
+.page-scale-enter-active {
+    transition: all $transition-duration $transition-easing-bounce;
+}
+.page-scale-leave-active {
+    transition: all #{$transition-duration * 0.5} $transition-easing;
+}
+.page-scale-enter-from {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(4px);
+}
+.page-scale-leave-to {
+    opacity: 0;
+    transform: scale(1.03);
+    filter: blur(2px);
+}
+
+// 4. 模糊渐变效果 (page-blur)
+.page-blur-enter-active,
+.page-blur-leave-active {
+    transition: all $transition-duration $transition-easing;
+}
+.page-blur-enter-from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.05);
+}
+.page-blur-leave-to {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(0.98);
+}
+
+// 5. 3D 翻转效果 (page-flip)
+.page-flip-enter-active,
+.page-flip-leave-active {
+    transition: all $transition-duration $transition-easing;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+.page-flip-enter-from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-8deg) translateY(20px);
+}
+.page-flip-leave-to {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(5deg) translateY(-10px);
+}
+
+// ====================================================
